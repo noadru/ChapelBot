@@ -205,8 +205,7 @@ if (http_status(bookingResponse)$category == "Success" & http_status(customerRes
           #reason = reason
         #),
         add_headers(`User-Agent` = user_agent)
-      )
-      cat(http_status(response)$message, "\n")
+       cat("Manual review notification sent — no cancellation performed.\n")
     }
     combined_notoncampus <- rbind(notoncampus, prevnotoncampus)
     write.csv(combined_notoncampus, "./data/notoncampus.csv", row.names = FALSE)
